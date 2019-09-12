@@ -1,16 +1,15 @@
-'use strict';
+"use strict";
 
 /**
  * Register this service (boilerplate).
  */
-Accounts.oauth.registerService('imgur');
+Accounts.oauth.registerService("apple");
 
 /**
  * Client functionality (boilerplate).
  */
 if (Meteor.isClient) {
-  Meteor.loginWithImgur = function(options, callback) {
-    
+  Meteor.loginWithApple = function(options, callback) {
     /**
      * support (options, callback) and (callback)
      */
@@ -20,35 +19,39 @@ if (Meteor.isClient) {
     }
 
     /**
-     * 
+     *
      */
-    var credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(callback);
-    Imgur.requestCredential(options, credentialRequestCompleteCallback);
+    var credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(
+      callback
+    );
+    Apple.requestCredential(options, credentialRequestCompleteCallback);
   };
 
-/**
- * Server functionality (boilerplate).
- * Ensures sanity of published user object.
- */
+  /**
+   * Server functionality (boilerplate).
+   * Ensures sanity of published user object.
+   */
 } else {
   Accounts.addAutopublishFields({
     forLoggedInUser: _.map(
       /**
        * Logged in user gets whitelisted fields + accessToken + expiresAt.
        */
-      Imgur.whitelistedFields.concat(['accessToken', 'expiresAt']), // don't publish refresh token
+      Apple.whitelistedFields.concat(["accessToken", "expiresAt"]), // don't publish refresh token
       function(subfield) {
-        return 'services.imgur.' + subfield;
-      }),
+        return "services.apple." + subfield;
+      }
+    ),
 
     forOtherUsers: _.map(
       /**
        * Other users get whitelisted fields without emails, because even with
        * autopublish, no legitimate web app should be publishing all users' emails.
        */
-      _.without(Imgur.whitelistedFields, 'email', 'verified_email'),
+      _.without(Apple.whitelistedFields, "email", "verified_email"),
       function(subfield) {
-        return 'services.imgur.' + subfield;
-      })
+        return "services.apple." + subfield;
+      }
+    )
   });
 }
