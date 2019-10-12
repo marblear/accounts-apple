@@ -1,3 +1,4 @@
+/* global Apple */
 Accounts.oauth.registerService('apple');
 
 if (Meteor.isClient) {
