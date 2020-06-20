@@ -1,6 +1,6 @@
 Package.describe({
   name: 'quave:accounts-apple',
-  version: '1.0.2',
+  version: '1.1.0',
   summary: 'OAuth2 for Sign in with Apple - fork from bigowl',
   git: 'https://github.com/quavedev/accounts-apple',
   documentation: 'README.md',
