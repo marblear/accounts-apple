@@ -14,7 +14,8 @@ if (Meteor.isClient) {
     );
     Apple.requestCredential(
       options,
-      Meteor.isCordova ? callback : credentialRequestCompleteCallback
+      callback,
+      credentialRequestCompleteCallback
     );
   };
   Accounts.registerClientLoginFunction("apple", loginWithApple);
