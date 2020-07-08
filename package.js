@@ -1,6 +1,6 @@
 Package.describe({
   name: 'quave:accounts-apple',
-  version: '1.1.0',
+  version: '1.1.2',
   summary: 'OAuth2 for Sign in with Apple - fork from bigowl',
   git: 'https://github.com/quavedev/accounts-apple',
   documentation: 'README.md',
@@ -12,7 +12,7 @@ Package.onUse(api => {
   api.use('accounts-base', ['client', 'server']);
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
-  api.use('quave:apple-oauth@1.0.2');
+  api.use('quave:apple-oauth@1.3.3');
   api.imply('quave:apple-oauth');
 
   api.use(
