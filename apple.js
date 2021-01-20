@@ -14,8 +14,8 @@ if (Meteor.isClient) {
     );
     Apple.requestCredential(
       options,
-      callback,
-      credentialRequestCompleteCallback
+      credentialRequestCompleteCallback,
+      callback
     );
   };
   Accounts.registerClientLoginFunction("apple", loginWithApple);
