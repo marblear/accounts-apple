@@ -12,7 +12,7 @@ Package.onUse(api => {
   api.use('accounts-base', ['client', 'server']);
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
-  api.use('quave:apple-oauth@3.0.0');
+  api.use('quave:apple-oauth@4.0.0');
   api.imply('quave:apple-oauth');
 
   api.use(
