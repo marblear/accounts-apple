@@ -2,7 +2,7 @@
 Accounts.oauth.registerService("apple");
 
 if (Meteor.isClient) {
-  const loginWithApple = (options, callback) => {
+  const loginWithApple = async (options, callback) => {
     // support a callback without options
     if (!callback && typeof options === "function") {
       callback = options;
@@ -12,7 +12,7 @@ if (Meteor.isClient) {
     const credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(
       callback
     );
-    Apple.requestCredential(
+    await Apple.requestCredential(
       options,
       credentialRequestCompleteCallback,
       callback
